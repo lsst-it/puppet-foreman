@@ -1,6 +1,6 @@
 {
   "name": "theforeman-foreman",
-  "version": "19.3.0",
+  "version": "20.2.0",
   "author": "theforeman",
   "summary": "Foreman server configuration",
   "license": "GPL-3.0+",
@@ -18,7 +18,7 @@
     },
     {
       "name": "puppetlabs/apache",
-      "version_requirement": ">= 5.5.0 < 8.0.0"
+      "version_requirement": ">= 5.5.0 < 13.0.0"
     },
     {
       "name": "puppetlabs/apt",

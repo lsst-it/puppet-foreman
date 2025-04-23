@@ -300,10 +300,6 @@ class foreman (
     $db_sslmode_real = $db_sslmode
   }
 
-  foreman::rake { 'apipie:cache:index':
-    timeout => 0,
-  }
-
   foreman::rake { 'apipie_dsl:cache':
     timeout => 0,
   }
@@ -347,4 +343,10 @@ class foreman (
 
   contain 'foreman::settings' # lint:ignore:relative_classname_inclusion (PUP-1597)
   Class['foreman::database'] -> Class['foreman::settings']
+
+  file { '/usr/share/foreman/tmp/restart_required_changed_plugins':
+    ensure  => absent,
+    notify  => Class['foreman::service'],
+    require => Class['foreman::install'],
+  }
 }
